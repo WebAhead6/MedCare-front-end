@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 import Home from "./pages/home";
-import PatientDetials from "./pages/PatientDetials";
+import PatientDetials from "./pages/PatientDetails";
 import PatientMedication from "./pages/PatientMedications";
 import MedicationDetials from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
