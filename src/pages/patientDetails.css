@@ -1,0 +1,17 @@
+.profiledetails {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.profiledetails::before,
+.profiledetails::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+.profiledetails::before {
+  margin-right: 0.25em;
+}
+.profiledetails::after {
+  margin-left: 0.25em;
+}
