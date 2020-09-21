@@ -1,0 +1,14 @@
+.med-image {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+.med-pills {
+  width: 100px;
+  margin: 10px;
+  border-radius: 4px;
+}
+.description {
+  background-color: #eeeeee;
+}

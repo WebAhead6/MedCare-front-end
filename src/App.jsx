@@ -4,7 +4,7 @@ import "./App.css";
 import Home from "./pages/home";
 import PatientDetials from "./pages/PatientDetails";
 import PatientMedication from "./pages/PatientMedications";
-import MedicationDetials from "./pages/PatientMedicationId";
+import MedicationDetailsId from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -19,11 +19,11 @@ function App() {
           <Route path="/patient/details">
             <PatientDetials />
           </Route>
-          <Route path="/patient/medications">
+          <Route path="/patient/medications" exact>
             <PatientMedication />
           </Route>
           <Route path="/patient/medications/id">
-            <MedicationDetials />
+            <MedicationDetailsId />
           </Route>
           <Route path="/patient/report">
             <PatientReport />
