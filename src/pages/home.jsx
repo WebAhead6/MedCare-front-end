@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "./home.css";
 import { BsPersonFill } from "react-icons/bs";
 import { FaKey } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
@@ -35,7 +35,7 @@ const Home = function () {
       <Logo />
 
       <p className="sign-in">Sign In</p>
-      <div className="detail">
+      <div className="input-container">
         <input
           placeholder="Identity Number"
           type="text"
@@ -49,7 +49,7 @@ const Home = function () {
           <BsPersonFill />
         </span>
       </div>
-      <div className="detail">
+      <div className="input-container">
         <input
           placeholder="password"
           type="password"
