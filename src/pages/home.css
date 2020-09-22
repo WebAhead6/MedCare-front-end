@@ -5,27 +5,11 @@
   margin: auto;
   text-align: center;
 }
-.logo {
-  margin: 20px;
-}
+
 .sign-in {
   font-size: 30px;
   color: #5ca2fa;
   font-family: "Abhaya Libre", serif;
-}
-.logo img {
-  width: 150px;
-  margin-top: 50px;
-}
-.logo-name-med {
-  color: #5ca2fa;
-  font-family: "Petit Formal Script", cursive;
-  font-size: 30px;
-}
-
-.log-name-care {
-  color: red;
-  font-size: 30px;
 }
 
 .input-container {
