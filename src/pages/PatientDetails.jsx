@@ -29,19 +29,6 @@ const Detials = function () {
       <button className="medreport">
         Medical Report <img className="reporticon" src="/reporticon.svg"></img>
       </button>
-
-      <div className="bottomnav">
-        <a href="/patient/details">
-          <img className="homeicon" src="/homeicon.svg"></img>
-        </a>
-        <a href="/patient/medications">
-          <img className="capsule" src="/capsule.svg"></img>
-        </a>
-        <a href="/">
-          {" "}
-          <img className="logout" src="/logouticon.svg"></img>
-        </a>
-      </div>
     </main>
   );
 };

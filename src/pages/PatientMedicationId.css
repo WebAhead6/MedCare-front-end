@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: row;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 20px;
 }
 .med-pills {
   width: 100px;
@@ -11,4 +12,67 @@
 }
 .description {
   background-color: #eeeeee;
+  font-family: "Abhaya Libre", serif;
+}
+.description p {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.description span {
+  font-weight: bold;
+}
+.pillLeft {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+  border: 3px solid #5ca2fa;
+  border-radius: 8px;
+  width: 300px;
+}
+.pillLeft img {
+  width: 30px;
+}
+.card button {
+  background-color: #5ca2fa;
+  margin-top: 10px;
+  color: white;
+  font-family: "Abhaya Libre", serif;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  text-align: start;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  padding: 3px;
+}
+.amount {
+  font-size: 30px;
+  color: #5ca2fa;
+  border: 3px solid #5ca2fa;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  margin-top: 80px;
+  margin-right: 20px;
+
+  box-shadow: 0px 4px 4px #5ca2fa;
+}
+.smallAmount {
+  font-size: 50px;
+  color: red;
+  border: 3px solid red;
+  width: 70px;
+  height: 60px;
+  text-align: center;
+  margin-top: 60px;
+
+  box-shadow: 0px 4px 4px red;
+}
+.message {
+  font-family: "Abhaya Libre", serif;
+  font-size: 30px;
+  font-weight: bold;
 }
