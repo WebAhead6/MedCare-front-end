@@ -7,6 +7,7 @@ import PatientMedication from "./pages/PatientMedications";
 import MedicationDetailsId from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Askadoc from "./pages/Askadoc";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/patient/report">
             <PatientReport />
+          </Route>
+          <Route path="/patient/askadoc">
+            <Askadoc />
           </Route>
         </Switch>
       </Router>
