@@ -6,11 +6,8 @@ import PatientDetials from "./pages/PatientDetails";
 import PatientMedication from "./pages/PatientMedications";
 import MedicationDetailsId from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import Askadoc from "./pages/Askadoc";
-
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
