@@ -24,9 +24,11 @@ const Detials = function () {
             <img className="medicon" src="/medicon.svg"></img>
           </button>
         </a>
-        <button className="askdoc">
-          Ask a Doctor <img className="docicon" src="/docicon.svg"></img>
-        </button>
+        <a href="/patient/askadoc">
+          <button className="askdoc">
+            Ask a Doctor <img className="docicon" src="/docicon.svg"></img>
+          </button>
+        </a>
       </div>
       <a href="/patient/report">
         <button className="medreport">
