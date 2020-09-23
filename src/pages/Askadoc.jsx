@@ -2,15 +2,11 @@ import React from "react";
 import "./askadoc.css";
 import Logo from "../component/logo";
 
-// togglePopup() {
-//   this.setState({
-//     showPopup: !this.state.showPopup
-//   });
-// }
 const Askadoc = function () {
-  // function PopUp() {
-  //   console.log("me");
-  // }
+  function PopUp() {
+    setShowPopUp(!showpopup);
+  }
+  const [showpopup, setShowPopUp] = React.useState(false);
 
   return (
     <main>
@@ -20,16 +16,27 @@ const Askadoc = function () {
       </div>
       <div className="docques">Ask a Doctor</div>
       <div className="docquestions">
-        <button className="sendbutton" onClick={() => {}}>
+        <button className="sendbutton" onClick={PopUp}>
           I need a prescription
         </button>
-        <button className="sendbutton">Make an appointment</button>
-        <button className="sendbutton">I have a health issue</button>
-        <button className="sendbutton">I need to conduct a test</button>
+        <button className="sendbutton" onClick={PopUp}>
+          Make an appointment
+        </button>
+        <button className="sendbutton" onClick={PopUp}>
+          I have a health issue
+        </button>
+        <button className="sendbutton" onClick={PopUp}>
+          I need to conduct a test
+        </button>
       </div>
-      <div className="showPopup">
+      <div
+        className="showPopup"
+        style={{ display: showpopup ? "flex" : "none" }}
+      >
         <div className="messgaerecieved message">
-          <div className="close">+</div>
+          <div className="close" onClick={PopUp}>
+            +
+          </div>
           <img className="thumbup" src="/thumb-up.svg"></img>
           your request was sent to your doctor, check later for response{" "}
         </div>
