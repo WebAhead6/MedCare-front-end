@@ -2,7 +2,11 @@ import React from "react";
 import "./logo.css";
 import "../pages/home.css";
 const Logo = function () {
-  const arr = ["/patient/medications/id", "/patient/details"];
+  const arr = [
+    "/patient/medications/id",
+    "/patient/details",
+    "/patient/report",
+  ];
   const searchRoute = () => {
     let bool = false;
     arr.forEach((route) => {

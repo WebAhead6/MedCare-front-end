@@ -13,17 +13,17 @@ const Home = function () {
   const [userData, setUserData] = React.useState({});
   const history = useHistory();
 
-  const handleClick = () => {
-    // getUserData(`http://localhost:4000/api/login`, "POST", userDetails)
-    //   .then((data) => {
-    //     setUserData(data);
-    //     if (data.message === "Logged successfully") history.push("/post");
-    //   })
-    //   .catch(() => {});
+  // const handleClick = () => {
+  //   // getUserData(`http://localhost:4000/api/login`, "POST", userDetails)
+  //   //   .then((data) => {
+  //   //     setUserData(data);
+  //   //     if (data.message === "Logged successfully") history.push("/post");
+  //   //   })
+  //   //   .catch(() => {});
 
-    setUserData("abeer", "1234");
-    history.push("/patient/details");
-  };
+  //   setUserData("abeer", "1234");
+  //   history.push("/patient/details");
+  // };
 
   if (!userData) {
     return <h3>...Loading</h3>;
@@ -63,7 +63,9 @@ const Home = function () {
           <FaKey />
         </span>
       </div>
-      <button onClick={handleClick}>login</button>
+      <a href="/patient/details">
+        <button>login</button>
+      </a>
     </div>
   );
 };

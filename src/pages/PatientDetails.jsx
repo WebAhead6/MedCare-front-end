@@ -18,17 +18,22 @@ const Detials = function () {
         Patient Name: Abeer <br></br> Age:57 yo<br></br> phone number: 123456789
       </div>
       <div className="container">
-        <button className="medicationlist">
-          Medications List
-          <img className="medicon" src="/medicon.svg"></img>
-        </button>
+        <a href="/patient/medications">
+          <button className="medicationlist">
+            Medications List
+            <img className="medicon" src="/medicon.svg"></img>
+          </button>
+        </a>
         <button className="askdoc">
           Ask a Doctor <img className="docicon" src="/docicon.svg"></img>
         </button>
       </div>
-      <button className="medreport">
-        Medical Report <img className="reporticon" src="/reporticon.svg"></img>
-      </button>
+      <a href="/patient/report">
+        <button className="medreport">
+          Medical Report{" "}
+          <img className="reporticon" src="/reporticon.svg"></img>
+        </button>
+      </a>
     </main>
   );
 };
