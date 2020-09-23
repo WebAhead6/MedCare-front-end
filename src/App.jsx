@@ -7,7 +7,10 @@ import PatientMedication from "./pages/PatientMedications";
 import MedicationDetailsId from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import Askadoc from "./pages/Askadoc";
+
+
 
 function App() {
   return (
@@ -34,6 +37,24 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      {window.location.pathname !== "/" ? (
+        <footer>
+          <div className="bottomnav">
+            <a href="/patient/details">
+              <img className="homeicon" src="/homeicon.svg"></img>
+            </a>
+            <a href="/patient/medications">
+              <img className="capsule" src="/capsule.svg"></img>
+            </a>
+            <a href="/">
+              {" "}
+              <img className="logout" src="/logouticon.svg"></img>
+            </a>
+          </div>
+        </footer>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

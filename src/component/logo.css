@@ -1,0 +1,51 @@
+.logo {
+  margin: 20px;
+}
+.img-name {
+  margin-top: 15px;
+  margin-left: -30px;
+}
+.logo img {
+  width: 150px;
+  margin-top: 50px;
+}
+.logo-name-med {
+  color: #5ca2fa;
+  font-family: "Petit Formal Script", cursive;
+  font-size: 30px;
+}
+
+.log-name-care {
+  color: red;
+  font-size: 30px;
+}
+
+.smallLogo {
+  display: flex;
+  justify-content: space-between;
+  margin: -15px;
+}
+
+.smallLogo img {
+  width: 60px;
+  margin-top: 5px;
+}
+
+.smallLogo .logo-name-med {
+  color: #5ca2fa;
+  font-family: "Petit Formal Script", cursive;
+  font-size: 20px;
+}
+
+.smallLogo .log-name-care {
+  color: red;
+  font-size: 20px;
+}
+
+.date {
+  margin-top: 50px;
+  margin-right: -32px;
+  font-size: 25px;
+  color: #5ca2fa;
+  font-family: "Abhaya Libre", serif;
+}
