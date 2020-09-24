@@ -1,20 +1,27 @@
 import React from "react";
 import Logo from "../component/logo";
 import "./PatientReport.css";
+import getPatientData from "../utlis/getPatientData";
 
 const PatientReport = function () {
   const [medicalReport, setMedicalResport] = React.useState();
+  React.useEffect(() => {
+    getPatientData(`/profile/1`)
+      .then((data) => {
+        setMedicalResport(data);
+      })
+      .catch(() => {});
+  }, []);
+  if (!medicalReport) {
+    return <h3>...Loading</h3>;
+  }
+  const { medical_report, first_name } = medicalReport.data;
   return (
     <div className="card">
       <Logo />
-      <h1>Hello User </h1>
+      <h1>Hello {first_name} </h1>
       <div className="profiledetails"> My Medical Report</div>
-      <p className="report">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore iusto
-        iure accusamus ratione numquam possimus pariatur! Veritatis, adipisci,
-        placeat repellat et nobis eveniet voluptas harum labore ex sit
-        laboriosam minima.
-      </p>
+      <p className="report">{medical_report}</p>
     </div>
   );
 };
