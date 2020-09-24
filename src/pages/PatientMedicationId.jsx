@@ -1,68 +1,82 @@
 import React from "react";
 import Logo from "../component/logo";
 import "./PatientMedicationId.css";
-import { useHistory } from "react-router-dom";
+import getPatientData from "../utlis/getPatientData";
 
 const MedicationDetailsId = function () {
-  const [medDetails, setmedDetails] = React.useState({
-    Uses: "hyperactivity disorder ADHD",
-    imprint: "30mg",
-    medicationtake: "3 times a day",
-    endsDate: "6/11/2020",
-    amount: 30,
-    pills_image: "/adderall.jpg",
-    medication_image: "/Ritalin tablets-550x550.png",
-  });
-  const [pillLeft, setPillLeft] = React.useState(
-    new Array(medDetails.amount).fill("")
-  );
+  const [medDetails, setmedDetails] = React.useState({});
+  const [pillLeft, setPillLeft] = React.useState(new Array(0).fill(""));
+
+  React.useEffect(() => {
+    const id = localStorage.getItem("medicationId");
+    getPatientData(`/medicationsList/1/${id}`)
+      .then((data) => {
+        setmedDetails(data.data);
+        setPillLeft(new Array(data.data.pills_num).fill(""));
+      })
+      .catch(() => {});
+  }, []);
+
+  if (!medDetails) {
+    return <h3>...Loading</h3>;
+  }
+  const {
+    medication_name,
+    medication_usage,
+    imprint,
+    end_date,
+    pills_num,
+    pills_image,
+    medication_image,
+  } = medDetails;
 
   const handleClick = () => {
-    setmedDetails({ ...medDetails, amount: medDetails.amount - 1 });
+    setmedDetails({ ...medDetails, pills_num: pills_num - 1 });
     setPillLeft(pillLeft.filter((_, i) => i !== 0));
   };
   return (
     <div className="card">
       <Logo />
       <div className="med-image">
-        <img className="med-pills" src={medDetails.medication_image} />
+        <img className="med-pills" src={medication_image} />
         <img
           className="med-pills"
           style={{ borderRadius: "30px" }}
-          src={medDetails.pills_image}
+          src={pills_image}
         />
       </div>
       <div className="details">
         <div className="description">
           <p>
+            <span>Name: </span>
+            {medication_name}{" "}
+          </p>
+          <p>
             <span>Uses: </span>
-            {medDetails.Uses}{" "}
+            {medication_usage}{" "}
           </p>
           <p>
             <span>Imprint: </span>
-            {medDetails.imprint}
+            {imprint}
           </p>
-          <p>
-            <span>Daily usage: </span>
-            {medDetails.medicationtake}
-          </p>
+
           <p>
             <span>End date: </span>
-            {medDetails.endsDate}
+            {end_date}
           </p>
         </div>
-        {medDetails.amount > 5 ? (
-          <div className="amount">{medDetails.amount}</div>
+        {pills_num > 5 ? (
+          <div className="amount">{pills_num}</div>
         ) : (
-          <div className="smallAmount">{medDetails.amount}</div>
+          <div className="smallAmount">{pills_num}</div>
         )}
       </div>
-      {medDetails.amount !== 0 ? (
+      {pills_num !== 0 ? (
         <div>
           <div className="pillLeft">
             {pillLeft.map((value, index) => (
               <div key={index}>
-                <img src={medDetails.pills_image} />
+                <img src="/medicine-cartoon-png-favpng-ryLDmwNjBtPxGGEFX8ResUD0y.jpg" />
               </div>
             ))}
           </div>
