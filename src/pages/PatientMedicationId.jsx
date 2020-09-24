@@ -9,7 +9,7 @@ const MedicationDetailsId = function () {
 
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
-    getPatientData(`http://localhost:5000/medicationsList/1/${id}`)
+    getPatientData(`/medicationsList/1/${id}`)
       .then((data) => {
         setmedDetails(data.data);
         setPillLeft(new Array(data.data.pills_num).fill(""));

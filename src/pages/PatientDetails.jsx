@@ -7,7 +7,7 @@ import getUserData from "../utlis/getPatientData";
 const Detials = function () {
   const [patientData, setPatientData] = React.useState(null);
   React.useEffect(() => {
-    getUserData(`http://localhost:5000/profile/1`)
+    getUserData(`/profile/1`)
       .then((data) => {
         setPatientData(data);
       })

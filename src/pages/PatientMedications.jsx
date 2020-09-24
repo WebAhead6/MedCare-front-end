@@ -13,7 +13,7 @@ const PatientMedication = function () {
 
   const [patientMedData, setPatientMedData] = React.useState(null);
   React.useEffect(() => {
-    getPatientData(`http://localhost:5000/medicationsList/1`)
+    getPatientData(`/medicationsList/1`)
       .then((data) => {
         setPatientMedData(data);
       })

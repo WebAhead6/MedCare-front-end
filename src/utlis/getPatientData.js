@@ -6,7 +6,7 @@ const checkResponse = (response) => {
 };
 
 const getUserData = (url) => {
-  return fetch(`${url}`)
+  return fetch(`${process.env.REACT_APP_API}${url}`)
     .then(checkResponse)
     .catch((err) => {
       console.log(err);
