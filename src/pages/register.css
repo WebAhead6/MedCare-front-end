@@ -1,0 +1,47 @@
+.register {
+  margin-bottom: 14px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.input-container input,
+select {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-color: white;
+  padding: 15px;
+  background-color: #eeeeee;
+  box-shadow: 0px 4px 4px #7c6969;
+  border: none;
+}
+
+::placeholder,
+select:required:invalid {
+  font-size: 20px;
+  opacity: 1;
+  font-family: "Abhaya Libre", serif;
+}
+select:required:invalid {
+  color: gray;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+
+.login-message {
+  font-family: "Abhaya Libre", serif;
+  color: #5ca2fa;
+  font-size: 20px;
+  margin-top: 5px;
+}

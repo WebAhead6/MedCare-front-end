@@ -24,7 +24,7 @@ const PatientMedication = function () {
   }
 
   return (
-    <div className="card">
+    <div className="main-card">
       <Logo />
       <div className="title">
         <p>Medications List</p>

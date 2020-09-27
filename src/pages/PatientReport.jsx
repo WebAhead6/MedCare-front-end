@@ -17,7 +17,7 @@ const PatientReport = function () {
   }
   const { medical_report, first_name } = medicalReport.data;
   return (
-    <div className="card">
+    <div className="main-card">
       <Logo />
       <h1>Hello {first_name} </h1>
       <div className="profiledetails"> My Medical Report</div>
