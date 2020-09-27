@@ -46,7 +46,7 @@ const MedicationDetailsId = function () {
     });
   };
   return (
-    <div className="card">
+    <div className="main-card">
       <Logo />
       <div className="med-image">
         <img className="med-pills" src={medication_image} />
@@ -91,6 +91,7 @@ const MedicationDetailsId = function () {
               </div>
             ))}
           </div>
+
           <button onClick={decrementPillsNum}>I took the pill</button>
         </div>
       ) : (
@@ -98,7 +99,7 @@ const MedicationDetailsId = function () {
           {" "}
           <p className="message">The pills are over,to refill press here</p>
           <a href="/patient/details">
-            <button>refill</button>
+            <button className="style-button">refill</button>
           </a>
         </div>
       )}

@@ -1,4 +1,4 @@
-.card {
+.main-card {
   display: flex;
   flex-direction: column;
   max-width: 300px;
@@ -20,7 +20,7 @@
   margin-bottom: 25px;
   text-align: center;
 }
-.input-container input {
+.input-container input select .add-patient {
   width: 100%;
   border-radius: 8px;
   border-color: white;
@@ -42,7 +42,7 @@
   right: 5px;
   top: 8px;
 }
-.card button {
+.style-button {
   border: 5px solid #5ca2fa;
   border-radius: 10px;
   padding: 12px;

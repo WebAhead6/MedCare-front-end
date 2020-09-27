@@ -25,13 +25,13 @@ const Home = function () {
   //   history.push("/patient/details");
   // };
 
-  if (!userData) {
+  if (!userDetails) {
     return <h3>...Loading</h3>;
   }
   // const { message } = userData;
 
   return (
-    <div className="card">
+    <div className="main-card">
       <Logo />
 
       <p className="sign-in">Sign In</p>
@@ -64,7 +64,7 @@ const Home = function () {
         </span>
       </div>
       <a href="/patient/details">
-        <button>login</button>
+        <button className="style-button">login</button>
       </a>
     </div>
   );

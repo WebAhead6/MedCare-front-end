@@ -6,6 +6,7 @@ const Logo = function () {
     "/patient/medications/id",
     "/patient/details",
     "/patient/report",
+    // "/doctor/register",
   ];
   const searchRoute = () => {
     let bool = false;
