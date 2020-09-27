@@ -35,7 +35,7 @@ const MedicationDetailsId = function () {
     setPillLeft(pillLeft.filter((_, i) => i !== 0));
   };
   return (
-    <div className="card">
+    <div className="main-card">
       <Logo />
       <div className="med-image">
         <img className="med-pills" src={medication_image} />
@@ -80,14 +80,16 @@ const MedicationDetailsId = function () {
               </div>
             ))}
           </div>
-          <button onClick={handleClick}>I took the pill</button>
+          <button className="style-button" onClick={handleClick}>
+            I took the pill
+          </button>
         </div>
       ) : (
         <div>
           {" "}
           <p className="message">The pills are over,to refill press here</p>
           <a href="/patient/details">
-            <button>refill</button>
+            <button className="style-button">refill</button>
           </a>
         </div>
       )}
