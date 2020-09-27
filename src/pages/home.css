@@ -20,7 +20,7 @@
   margin-bottom: 25px;
   text-align: center;
 }
-.input-container input select {
+.input-container input select .add-patient {
   width: 100%;
   border-radius: 8px;
   border-color: white;
