@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../component/logo";
 import "./PatientMedicationId.css";
 import getUserData from "../utlis/getPatientData";
-import postPatientData from "../utlis/getpatient";
+import postPatientData from "../utlis/postPatientData";
 
 const MedicationDetailsId = function () {
   const [medDetails, setmedDetails] = React.useState({});

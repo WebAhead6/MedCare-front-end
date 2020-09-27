@@ -17,7 +17,7 @@ const Register = function () {
 
   const [patientData, setPatientData] = React.useState({});
   const handleClick = () => {
-    postPatientData(`/doctor/register`, "post", patientDetails)
+    postPatientData(`/doctor/register`, patientDetails)
       .then((data) => {
         console.log(data);
         setPatientData(data);

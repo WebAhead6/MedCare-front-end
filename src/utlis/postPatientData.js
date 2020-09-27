@@ -5,9 +5,9 @@ const checkResponse = (response) => {
   return response.json();
 };
 
-const postPatientData = (url, method, body = {}) => {
+const postPatientData = (url, body = {}) => {
   return fetch(`${process.env.REACT_APP_API}${url}`, {
-    method: method,
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
