@@ -1,7 +1,8 @@
 import React from "react";
 import Logo from "../component/logo";
 import "./PatientMedicationId.css";
-import getPatientData from "../utlis/getPatientData";
+import getUserData from "../utlis/getPatientData";
+import postPatientData from "../utlis/getpatient";
 
 const MedicationDetailsId = function () {
   const [medDetails, setmedDetails] = React.useState({});
@@ -9,7 +10,7 @@ const MedicationDetailsId = function () {
 
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
-    getPatientData(`/medicationsList/1/${id}`)
+    getUserData(`/medicationsList/1/${id}`)
       .then((data) => {
         setmedDetails(data.data);
         setPillLeft(new Array(data.data.pills_num).fill(""));
@@ -30,9 +31,19 @@ const MedicationDetailsId = function () {
     medication_image,
   } = medDetails;
 
-  const handleClick = () => {
-    setmedDetails({ ...medDetails, pills_num: pills_num - 1 });
-    setPillLeft(pillLeft.filter((_, i) => i !== 0));
+  const decrementPillsNum = () => {
+    const id = localStorage.getItem("medicationId");
+    console.log(id);
+    postPatientData(`/medication/remove/1/${id}`, {
+      pills_num: pills_num,
+    }).then((data) => {
+      if (data.code === 200 && data.data.rowCount > 0) {
+        setmedDetails({ ...medDetails, pills_num: pills_num - 1 });
+        setPillLeft(pillLeft.filter((_, i) => i !== 0));
+      } else {
+        alert("sorry , could`nt update number of pills!");
+      }
+    });
   };
   return (
     <div className="card">
@@ -80,7 +91,7 @@ const MedicationDetailsId = function () {
               </div>
             ))}
           </div>
-          <button onClick={handleClick}>I took the pill</button>
+          <button onClick={decrementPillsNum}>I took the pill</button>
         </div>
       ) : (
         <div>

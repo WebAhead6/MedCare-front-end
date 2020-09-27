@@ -13,4 +13,5 @@ const getUserData = (url) => {
       throw new Error(`fetch getDataUser falid ${err}`);
     });
 };
+
 export default getUserData;
