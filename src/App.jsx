@@ -8,6 +8,7 @@ import MedicationDetailsId from "./pages/PatientMedicationId";
 import PatientReport from "./pages/PatientReport";
 import Askadoc from "./pages/Askadoc";
 import Register from "./pages/register";
+import PatientList from "./pages/patientList";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/doctor/register">
             <Register />
+          </Route>
+          <Route path="/doctor/patientList">
+            <PatientList />
           </Route>
         </Switch>
       </Router>
