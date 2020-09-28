@@ -7,10 +7,10 @@ import postPatientData from "../utlis/postPatientData";
 const MedicationDetailsId = function () {
   const [medDetails, setmedDetails] = React.useState({});
   const [pillLeft, setPillLeft] = React.useState(new Array(0).fill(""));
-
+  const patient_id = localStorage.getItem("patientId");
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
-    getUserData(`/medicationsList/1/${id}`)
+    getUserData(`/medicationsList/${patient_id}/${id}`)
       .then((data) => {
         setmedDetails(data.data);
         setPillLeft(new Array(data.data.pills_num).fill(""));
@@ -33,8 +33,9 @@ const MedicationDetailsId = function () {
 
   const decrementPillsNum = () => {
     const id = localStorage.getItem("medicationId");
+
     console.log(id);
-    postPatientData(`/medication/remove/1/${id}`, {
+    postPatientData(`/medication/remove/${patient_id}/${id}`, {
       pills_num: pills_num,
     }).then((data) => {
       if (data.code === 200 && data.data.rowCount > 0) {
@@ -63,7 +64,7 @@ const MedicationDetailsId = function () {
             {medication_name}{" "}
           </p>
           <p>
-            <span>Uses: </span>
+            <span>Usage: </span>
             {medication_usage}{" "}
           </p>
           <p>
@@ -98,7 +99,7 @@ const MedicationDetailsId = function () {
         <div>
           {" "}
           <p className="message">The pills are over,to refill press here</p>
-          <a href="/patient/details">
+          <a href="/patient/askadoc">
             <button className="style-button">refill</button>
           </a>
         </div>

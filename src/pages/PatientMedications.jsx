@@ -13,7 +13,8 @@ const PatientMedication = function () {
 
   const [patientMedData, setPatientMedData] = React.useState(null);
   React.useEffect(() => {
-    getPatientData(`/medicationsList/1`)
+    const id = localStorage.getItem("patientId");
+    getPatientData(`/medicationsList/${id}`)
       .then((data) => {
         setPatientMedData(data);
       })
