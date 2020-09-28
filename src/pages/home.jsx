@@ -4,31 +4,32 @@ import { BsPersonFill } from "react-icons/bs";
 import { FaKey } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import Logo from "../component/logo";
+import postPatientData from "../utlis/postPatientData";
 
 const Home = function () {
-  const [userDetails, setUserDetails] = React.useState({
-    username: "",
+  const [patientDetails, setPatientDetails] = React.useState({
+    identityNumber: "",
     password: "",
   });
-  const [userData, setUserData] = React.useState({});
+  const [patientData, setUpatientData] = React.useState({});
   const history = useHistory();
 
-  // const handleClick = () => {
-  //   // getUserData(`http://localhost:4000/api/login`, "POST", userDetails)
-  //   //   .then((data) => {
-  //   //     setUserData(data);
-  //   //     if (data.message === "Logged successfully") history.push("/post");
-  //   //   })
-  //   //   .catch(() => {});
+  const handleClick = () => {
+    postPatientData(`/patient/login`, patientDetails)
+      .then((data) => {
+        setUpatientData(data);
+        if (data.message === "Logged successfully") {
+          localStorage.setItem("patientId", data.data_id);
+          history.push("/patient/details");
+        }
+      })
+      .catch(() => {});
+  };
 
-  //   setUserData("abeer", "1234");
-  //   history.push("/patient/details");
-  // };
-
-  if (!userDetails) {
+  if (!patientDetails) {
     return <h3>...Loading</h3>;
   }
-  // const { message } = userData;
+  const { message } = patientData;
 
   return (
     <div className="main-card">
@@ -40,9 +41,12 @@ const Home = function () {
           placeholder="Identity Number"
           type="text"
           name="Identity Number"
-          value={userDetails.username}
+          value={patientDetails.identityNumber}
           onChange={(e) =>
-            setUserDetails({ ...userDetails, username: e.target.value })
+            setPatientDetails({
+              ...patientDetails,
+              identityNumber: e.target.value,
+            })
           }
         />
         <span className="icon">
@@ -54,18 +58,20 @@ const Home = function () {
           placeholder="password"
           type="password"
           name="password"
-          value={userDetails.password}
+          value={patientDetails.password}
           onChange={(e) =>
-            setUserDetails({ ...userDetails, password: e.target.value })
+            setPatientDetails({ ...patientDetails, password: e.target.value })
           }
         />
         <span className="icon">
           <FaKey />
         </span>
       </div>
-      <a href="/patient/details">
-        <button className="style-button">login</button>
-      </a>
+
+      <button onClick={handleClick} className="style-button">
+        login
+      </button>
+      <div className="message">{message}</div>
     </div>
   );
 };
