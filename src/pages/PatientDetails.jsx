@@ -7,7 +7,8 @@ import getUserData from "../utlis/getPatientData";
 const Detials = function () {
   const [patientData, setPatientData] = React.useState(null);
   React.useEffect(() => {
-    getUserData(`/profile/1`)
+    const id = localStorage.getItem("patientId");
+    getUserData(`/profile/${id}`)
       .then((data) => {
         setPatientData(data);
       })
@@ -18,11 +19,14 @@ const Detials = function () {
   }
   const { first_name, last_name, birthdate, phone_number } = patientData.data;
   const calculate_age = (date) => {
-    var from = date.split("/");
-    var birthdateTimeStamp = new Date(from[2], from[1] - 1, from[0]);
-    var cur = new Date();
-    var diff = cur - birthdateTimeStamp;
-    return Math.floor(diff / 31557600000);
+    var today = new Date();
+    var birthDate = new Date(date);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
   };
   return (
     <main>
