@@ -9,6 +9,7 @@ import PatientReport from "./pages/PatientReport";
 import Askadoc from "./pages/Askadoc";
 import Register from "./pages/register";
 import PatientList from "./pages/patientList";
+<<<<<<< HEAD
 import Footer from "./component/footer";
 import {
   BrowserRouter as Router,
@@ -18,11 +19,16 @@ import {
   useLocation,
 } from "react-router-dom";
 
+=======
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import DoctorProfile from "./pages/doctorprofile";
+>>>>>>> master
 function App() {
   // const location = useLocation();
 
   return (
     <div className="App">
+<<<<<<< HEAD
       <Switch>
         <Route exact path="/">
           <Home />
@@ -51,6 +57,40 @@ function App() {
       </Switch>
       <Footer />
       {/* {location.pathname !== "/" ? (
+=======
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/patient/details">
+            <PatientDetials />
+          </Route>
+          <Route path="/patient/medications" exact>
+            <PatientMedication />
+          </Route>
+          <Route path="/patient/medications/id">
+            <MedicationDetailsId />
+          </Route>
+          <Route path="/patient/report">
+            <PatientReport />
+          </Route>
+          <Route path="/patient/askadoc">
+            <Askadoc />
+          </Route>
+          <Route path="/doctor/register">
+            <Register />
+          </Route>
+          <Route path="/doctor/patientList">
+            <PatientList />
+          </Route>
+          <Route path="/doctor/profile">
+            <DoctorProfile />
+          </Route>
+        </Switch>
+      </Router>
+      {window.location.pathname !== "/" ? (
+>>>>>>> master
         <footer>
           <div className="bottomnav">
             <a href="/patient/details">

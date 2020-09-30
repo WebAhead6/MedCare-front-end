@@ -12,9 +12,9 @@ const PatientMedication = function () {
   const [search, setSerach] = React.useState("");
 
   const history = useHistory();
-  const handleClick = (medId) => {
-    localStorage.setItem("medicationId", medId);
-    history.push("/patient/medications/id");
+  const handleClick = (patinetId) => {
+    localStorage.setItem("patinet_Id", patinetId);
+    history.push("/doctor/profile");
   };
 
   React.useEffect(() => {
