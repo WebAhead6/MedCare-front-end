@@ -7,6 +7,7 @@ import postPatientData from "../utlis/postPatientData";
 const MedicationDetailsId = function () {
   const [medDetails, setmedDetails] = React.useState({});
   const [pillLeft, setPillLeft] = React.useState(new Array(0).fill(""));
+  const [error, setError] = React.useState(false);
   const patient_id = localStorage.getItem("patientId");
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
@@ -39,13 +40,31 @@ const MedicationDetailsId = function () {
       pills_num: pills_num,
     }).then((data) => {
       if (data.code === 200 && data.data.rowCount > 0) {
-        setmedDetails({ ...medDetails, pills_num: pills_num - 1 });
-        setPillLeft(pillLeft.filter((_, i) => i !== 0));
-      } else {
-        alert("sorry , could`nt update number of pills!");
+        if (pills_num != 0) {
+          setmedDetails({ ...medDetails, pills_num: pills_num - 1 });
+          setPillLeft(pillLeft.filter((_, i) => i !== 0));
+        } else {
+          return setError(true);
+        }
       }
     });
   };
+
+  const handleClick = () => {
+    console.log("anan");
+    const id = localStorage.getItem("medicationId");
+    const patient_id = localStorage.getItem("patientId");
+    console.log("ffff", id, patient_id);
+    getUserData(`/medication/remove/${patient_id}/${id}`)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
+  };
+  if (error) {
+    return <h2>Error</h2>;
+  }
+
   return (
     <div className="main-card">
       <Logo />
@@ -100,7 +119,9 @@ const MedicationDetailsId = function () {
           {" "}
           <p className="message">The pills are over,to refill press here</p>
           <a href="/patient/askadoc">
-            <button className="style-button">refill</button>
+            <button onClick={handleClick} className="style-button">
+              refill
+            </button>
           </a>
         </div>
       )}
