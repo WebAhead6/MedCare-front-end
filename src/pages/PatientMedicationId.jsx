@@ -7,11 +7,7 @@ import postPatientData from "../utlis/postPatientData";
 const MedicationDetailsId = function () {
   const [medDetails, setmedDetails] = React.useState({});
   const [pillLeft, setPillLeft] = React.useState(new Array(0).fill(""));
-<<<<<<< HEAD
-
-=======
   const [error, setError] = React.useState(false);
->>>>>>> master
   const patient_id = localStorage.getItem("patientId");
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
@@ -54,8 +50,6 @@ const MedicationDetailsId = function () {
     });
   };
 
-<<<<<<< HEAD
-=======
   const handleClick = () => {
     console.log("anan");
     const id = localStorage.getItem("medicationId");
@@ -71,7 +65,6 @@ const MedicationDetailsId = function () {
     return <h2>Error</h2>;
   }
 
->>>>>>> master
   return (
     <div className="main-card">
       <Logo />
