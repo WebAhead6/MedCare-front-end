@@ -12,8 +12,8 @@ const PatientMedication = function () {
   const [search, setSerach] = React.useState("");
 
   const history = useHistory();
-  const handleClick = (patinetId) => {
-    localStorage.setItem("patinet_Id", patinetId);
+  const handleClick = (patinet_id) => {
+    localStorage.setItem("patinet_id", patinet_id);
     history.push("/doctor/profile");
   };
 

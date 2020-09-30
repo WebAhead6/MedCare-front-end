@@ -5,7 +5,13 @@ import { useLocation } from "react-router-dom";
 
 const Footer = function () {
   const location = useLocation();
-  const arr = ["/doctor/register", "/doctor/patientList"];
+  const arr = [
+    "/doctor/register",
+    "/doctor/patientList",
+    "/doctor/medListId",
+    "/doctor/profile",
+    "doctor/addMed",
+  ];
 
   const DoctorRoute = () => {
     let bool = false;
