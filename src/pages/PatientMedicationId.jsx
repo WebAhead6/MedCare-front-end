@@ -11,6 +11,7 @@ const MedicationDetailsId = function () {
   const patient_id = localStorage.getItem("patientId");
   React.useEffect(() => {
     const id = localStorage.getItem("medicationId");
+
     getUserData(`/medicationsList/${patient_id}/${id}`)
       .then((data) => {
         setmedDetails(data.data);
@@ -35,7 +36,6 @@ const MedicationDetailsId = function () {
   const decrementPillsNum = () => {
     const id = localStorage.getItem("medicationId");
 
-    console.log(id);
     postPatientData(`/medication/remove/${patient_id}/${id}`, {
       pills_num: pills_num,
     }).then((data) => {
@@ -112,7 +112,9 @@ const MedicationDetailsId = function () {
             ))}
           </div>
 
-          <button onClick={decrementPillsNum}>I took the pill</button>
+          <button className="style-button" onClick={decrementPillsNum}>
+            I took the pill
+          </button>
         </div>
       ) : (
         <div>
