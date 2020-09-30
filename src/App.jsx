@@ -10,7 +10,7 @@ import Askadoc from "./pages/Askadoc";
 import Register from "./pages/register";
 import PatientList from "./pages/patientList";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import DoctorProfile from "./pages/doctorprofile";
 function App() {
   return (
     <div className="App">
@@ -39,6 +39,9 @@ function App() {
           </Route>
           <Route path="/doctor/patientList">
             <PatientList />
+          </Route>
+          <Route path="/doctor/profile">
+            <DoctorProfile />
           </Route>
         </Switch>
       </Router>
