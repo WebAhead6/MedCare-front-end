@@ -5,6 +5,9 @@ import { BsPersonFill } from "react-icons/bs";
 import getUserData from "../utlis/getPatientData";
 
 const Detials = function () {
+  const nameCapitalized = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  };
   const [patientData, setPatientData] = React.useState(null);
   React.useEffect(() => {
     const id = localStorage.getItem("patientId");
@@ -32,7 +35,7 @@ const Detials = function () {
     <main>
       <Logo />
       <div>
-        <h1>Hello {first_name}</h1>
+        <h1>Hello {nameCapitalized(first_name)}</h1>
       </div>
       <div className="profiledetails">My Profile Details</div>
       <div className="personalinfo">

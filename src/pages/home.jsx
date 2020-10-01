@@ -13,7 +13,6 @@ const Home = function () {
   });
   const [patientData, setUpatientData] = React.useState({});
   const history = useHistory();
-
   const handleClick = () => {
     postPatientData(`/patient/login`, patientDetails)
       .then((data) => {
