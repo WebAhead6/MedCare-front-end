@@ -6,7 +6,8 @@ import getPatientData from "../utlis/getPatientData";
 const PatientReport = function () {
   const [medicalReport, setMedicalResport] = React.useState();
   React.useEffect(() => {
-    getPatientData(`/profile/1`)
+    const id = localStorage.getItem("patientId");
+    getPatientData(`/profile/${id}`)
       .then((data) => {
         setMedicalResport(data);
       })

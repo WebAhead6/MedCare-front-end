@@ -3,8 +3,10 @@ import Logo from "../component/logo";
 import "./PatientMedicationId.css";
 import getUserData from "../utlis/getPatientData";
 import postPatientData from "../utlis/postPatientData";
+import { useHistory } from "react-router-dom";
 
 const MedicationDetailsId = function () {
+  const history = useHistory();
   const [medDetails, setmedDetails] = React.useState({});
   const [pillLeft, setPillLeft] = React.useState(new Array(0).fill(""));
   const [error, setError] = React.useState(false);
@@ -36,7 +38,8 @@ const MedicationDetailsId = function () {
   const decrementPillsNum = () => {
     const id = localStorage.getItem("medicationId");
 
-    postPatientData(`/medication/remove/${patient_id}/${id}`, {
+    console.log(id);
+    postPatientData(`/pills/remove/${patient_id}/${id}`, {
       pills_num: pills_num,
     }).then((data) => {
       if (data.code === 200 && data.data.rowCount > 0) {
@@ -54,10 +57,10 @@ const MedicationDetailsId = function () {
     console.log("anan");
     const id = localStorage.getItem("medicationId");
     const patient_id = localStorage.getItem("patientId");
-    console.log("ffff", id, patient_id);
-    getUserData(`/medication/remove/${patient_id}/${id}`)
+    getUserData(`/mediRemove/${patient_id}/${id}`)
       .then((data) => {
         console.log(data);
+        history.push("/patient/askadoc");
       })
       .catch(console.error);
   };
@@ -120,11 +123,9 @@ const MedicationDetailsId = function () {
         <div>
           {" "}
           <p className="message">The pills are over,to refill press here</p>
-          <a href="/patient/askadoc">
-            <button onClick={handleClick} className="style-button">
-              refill
-            </button>
-          </a>
+          <button onClick={handleClick} className="style-button">
+            refill
+          </button>
         </div>
       )}
     </div>
