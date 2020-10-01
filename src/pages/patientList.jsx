@@ -4,16 +4,19 @@ import getPatientData from "../utlis/getPatientData";
 import { FaSearch } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
+import "./patientList.css";
 import "./home.css";
 
 const PatientMedication = function () {
+  const [patientList, setPatientList] = React.useState({});
+  const [search, setSerach] = React.useState("");
+
   const history = useHistory();
-  const handleClick = (patinetId) => {
-    localStorage.setItem("patinet_Id", patinetId);
+  const handleClick = (patinet_id) => {
+    localStorage.setItem("patinet_id", patinet_id);
     history.push("/doctor/profile");
   };
 
-  const [patientList, setPatientList] = React.useState(null);
   React.useEffect(() => {
     getPatientData(`/doctor/PatientList/`)
       .then((data) => {
@@ -21,7 +24,8 @@ const PatientMedication = function () {
       })
       .catch(() => {});
   }, []);
-  if (!patientList) {
+
+  if (!patientList.data) {
     return <h3>...Loading</h3>;
   }
 
@@ -29,19 +33,23 @@ const PatientMedication = function () {
     <div className="main-card">
       <Logo />
 
-      <div className="input-container">
-        <span className="icon">
-          <FaSearch />
-        </span>
-        <input placeholder="Identity Number" type="text" />
-      </div>
-      <div>
-        <span className="icon">
+      <div className="add-container">
+        <span className="add-icon">
           <FaPlus />
         </span>
         <a href="/doctor/register">
           <button className="add-patient">add paitent</button>
         </a>
+      </div>
+      <div className="input-container">
+        <span className="icon">
+          <FaSearch />
+        </span>
+        <input
+          placeholder="Identity Number"
+          type="text"
+          onChange={(e) => setSerach(e.target.value)}
+        />
       </div>
       <div className="title">
         <p>Patients List</p>
@@ -56,13 +64,17 @@ const PatientMedication = function () {
           </tr>
         </thead>
         <tbody>
-          {patientList.data.map(({ first_name, last_name, id_num, id }) => (
-            <tr key={id} onClick={() => handleClick(id)}>
-              <td>{id_num}</td>
-              <td>{last_name}</td>
-              <td> {first_name} </td>
-            </tr>
-          ))}
+          {patientList.data
+            .filter((list) => {
+              return list.id_num.toString().includes(search);
+            })
+            .map(({ first_name, last_name, id_num, id }) => (
+              <tr key={id} onClick={() => handleClick(id)}>
+                <td>{id_num}</td>
+                <td>{last_name}</td>
+                <td> {first_name} </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

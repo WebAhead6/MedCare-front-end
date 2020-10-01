@@ -20,7 +20,7 @@
   margin-bottom: 25px;
   text-align: center;
 }
-.input-container input select .add-patient {
+.input-container input select {
   width: 100%;
   border-radius: 8px;
   border-color: white;
@@ -52,4 +52,10 @@
   text-align: center;
   margin: auto;
   font-size: 25px;
+}
+.error {
+  margin-top: 3px;
+  font-size: 20px;
+  color: red;
+  font-family: "Abhaya Libre", serif;
 }
