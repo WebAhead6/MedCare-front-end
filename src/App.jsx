@@ -11,6 +11,8 @@ import Register from "./pages/register";
 import PatientList from "./pages/patientList";
 import Footer from "./component/footer";
 import DoctorProfile from "./pages/doctorprofile";
+import DoctorMedList from "./pages/doctorMedList";
+import DoctorAddMed from "./pages/doctorAddMed";
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,8 +22,6 @@ import {
 } from "react-router-dom";
 
 function App() {
-  // const location = useLocation();
-
   return (
     <div className="App">
       <Switch>
@@ -49,26 +49,17 @@ function App() {
         <Route path="/doctor/patientList">
           <PatientList />
         </Route>
+        <Route path="/doctor/profile">
+          <DoctorProfile />
+        </Route>
+        <Route path="/doctor/medListId">
+          <DoctorMedList />
+        </Route>
+        <Route path="/doctor/addMed">
+          <DoctorAddMed />
+        </Route>
       </Switch>
       <Footer />
-      {/* {location.pathname !== "/" ? (
-        <footer>
-          <div className="bottomnav">
-            <a href="/patient/details">
-              <img className="homeicon" src="/homeicon.svg"></img>
-            </a>
-            <a href="/patient/medications">
-              <img className="capsule" src="/capsule.svg"></img>
-            </a>
-            <a href="/">
-              {" "}
-              <img className="logout" src="/logouticon.svg"></img>
-            </a>
-          </div>
-        </footer>
-      ) : (
-        ""
-      )} */}
     </div>
   );
 }

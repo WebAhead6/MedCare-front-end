@@ -23,17 +23,16 @@ const Home = function () {
       identityNumberError: "",
       passwordError: "",
     };
+
+    console.log(typeof +patientDetails.identityNumber);
+    console.log(+patientDetails.identityNumber);
     if (!patientDetails.identityNumber) {
       isError = true;
       errors.identityNumberError = "please enter your identify number";
-    }
-    //  else {
-    //   if (typeof patientDetails.identityNumber !== "number") {
-    //     isError = true;
-    //     errors.identityNumberError = "only numbers";
-    //   }
-    // }
-    if (!patientDetails.password) {
+    } else if (!/^\d+$/.test(patientDetails.identityNumber)) {
+      isError = true;
+      errors.identityNumberError = "Only numbers";
+    } else if (!patientDetails.password) {
       isError = true;
       errors.passwordError = "please enter your password";
     }

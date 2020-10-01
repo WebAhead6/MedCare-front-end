@@ -5,16 +5,19 @@ import { BsPersonFill } from "react-icons/bs";
 import getUserData from "../utlis/getPatientData";
 
 const Detials = function () {
-  const [patientData, setPatientData] = React.useState(null);
+  const [patientData, setPatientData] = React.useState({});
+
   React.useEffect(() => {
-    const id = localStorage.getItem("patient_Id");
+    const id = localStorage.getItem("patinet_id");
+    console.log(id);
     getUserData(`/profile/${id}`)
       .then((data) => {
         setPatientData(data);
       })
       .catch(() => {});
   }, []);
-  if (!patientData) {
+
+  if (!patientData.data) {
     return <h3>...Loading</h3>;
   }
   const { first_name, last_name, birthdate, phone_number } = patientData.data;
@@ -42,12 +45,12 @@ const Detials = function () {
         {phone_number}
       </div>
       <div className="container">
-        {/* <a href="/patient/medications"> */}
-        <button className="medicationlist">
-          Medications List
-          <img className="medicon" src="/medicon.svg"></img>
-        </button>
-        {/* </a> */}
+        <a href="/doctor/medListId">
+          <button className="medicationlist">
+            Medications List
+            <img className="medicon" src="/medicon.svg"></img>
+          </button>
+        </a>
         {/* <a href="/patient/askadoc"> */}
         <button className="askdoc">
           patient alerts <img className="docicon" src="/docicon.svg"></img>
