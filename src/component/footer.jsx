@@ -10,7 +10,7 @@ const Footer = function () {
     "/doctor/patientList",
     "/doctor/medListId",
     "/doctor/profile",
-    "doctor/addMed",
+    "/doctor/addMed",
   ];
 
   const DoctorRoute = () => {
