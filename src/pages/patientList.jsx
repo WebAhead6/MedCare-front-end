@@ -32,25 +32,27 @@ const PatientMedication = function () {
   return (
     <div className="main-card">
       <Logo />
+      <div>
+        <div className="add-container">
+          <span className="add-icon">
+            <FaPlus />
+          </span>
+          <a href="/doctor/register">
+            <button className="add-patient">add paitent</button>
+          </a>
+        </div>
+        <div className="input-container" style={{ flexDirection: "unset" }}>
+          <span className="icon">
+            <FaSearch />
+          </span>
+          <input
+            placeholder="Identity Number"
+            type="text"
+            onChange={(e) => setSerach(e.target.value)}
+          />
+        </div>
+      </div>
 
-      <div className="add-container">
-        <span className="add-icon">
-          <FaPlus />
-        </span>
-        <a href="/doctor/register">
-          <button className="add-patient">add paitent</button>
-        </a>
-      </div>
-      <div className="input-container">
-        <span className="icon">
-          <FaSearch />
-        </span>
-        <input
-          placeholder="Identity Number"
-          type="text"
-          onChange={(e) => setSerach(e.target.value)}
-        />
-      </div>
       <div className="title">
         <p>Patients List</p>
         <img className="drug-icon" src="/medicon.svg" />

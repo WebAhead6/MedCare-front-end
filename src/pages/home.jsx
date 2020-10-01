@@ -75,44 +75,46 @@ const Home = function () {
       <Logo />
 
       <p className="sign-in">Sign In</p>
-      <div className="input-container">
-        <input
-          placeholder="Identity Number"
-          type="text"
-          name="Identity Number"
-          errorText={patientDetails.identityNumberError}
-          value={patientDetails.identityNumber}
-          onChange={(e) =>
-            setPatientDetails({
-              ...patientDetails,
-              identityNumber: e.target.value,
-            })
-          }
-        />
-        {patientDetails.identityNumberError && (
-          <p className="error">{patientDetails.identityNumberError}</p>
-        )}
-        <span className="icon">
-          <BsPersonFill />
-        </span>
-      </div>
-      <div className="input-container">
-        <input
-          placeholder="password"
-          type="password"
-          name="password"
-          value={patientDetails.password}
-          onChange={(e) =>
-            setPatientDetails({ ...patientDetails, password: e.target.value })
-          }
-        />
-        {patientDetails.passwordError && (
-          <p className="error">{patientDetails.passwordError}</p>
-        )}
+      <div>
+        <div className="input-container" style={{ flexDirection: "unset" }}>
+          <input
+            placeholder="Identity Number"
+            type="text"
+            name="Identity Number"
+            errorText={patientDetails.identityNumberError}
+            value={patientDetails.identityNumber}
+            onChange={(e) =>
+              setPatientDetails({
+                ...patientDetails,
+                identityNumber: e.target.value,
+              })
+            }
+          />
+          {patientDetails.identityNumberError && (
+            <p className="error">{patientDetails.identityNumberError}</p>
+          )}
+          <span className="icon">
+            <BsPersonFill />
+          </span>
+        </div>
+        <div className="input-container" style={{ flexDirection: "unset" }}>
+          <input
+            placeholder="password"
+            type="password"
+            name="password"
+            value={patientDetails.password}
+            onChange={(e) =>
+              setPatientDetails({ ...patientDetails, password: e.target.value })
+            }
+          />
+          {patientDetails.passwordError && (
+            <p className="error">{patientDetails.passwordError}</p>
+          )}
 
-        <span className="icon">
-          <FaKey />
-        </span>
+          <span className="icon">
+            <FaKey />
+          </span>
+        </div>
       </div>
       <button onClick={handleClick} className="style-button">
         login

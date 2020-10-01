@@ -1,5 +1,5 @@
 .add-patient {
-  width: 110%;
+  width: 100%;
   margin-bottom: 10px;
   border-radius: 8px;
   border-color: white;
@@ -19,17 +19,14 @@
 .add-icon {
   margin-top: 20px;
   position: absolute;
-  right: -255px;
-  left: 8px;
+  right: 5px;
   font-size: 30px;
   color: #455865;
 }
 
 .add-container {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  width: 300px;
+  width: 100%;
   margin: auto;
   margin-bottom: 6px;
   text-align: center;
